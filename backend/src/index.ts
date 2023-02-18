@@ -6,6 +6,7 @@ import { deleteDeckContoller } from './controllers/deleteDeckController'
 import { createDeckContoller } from './controllers/createDeckCotnroller'
 
 import { config } from 'dotenv'
+import { createCardForDeckContoller } from './controllers/createCardForDeckContoller'
 config()
 
 
@@ -16,10 +17,9 @@ app.use(express.json())
 app.use(cors())
 
 app.get('/decks', getDecksContoller)
-
 app.post('/decks', createDeckContoller)
-
 app.delete('/decks/:id', deleteDeckContoller)
+app.post('/decks/:id/cards', createCardForDeckContoller)
 
 mongoose.connect(
     process.env.MONGO_URL!
