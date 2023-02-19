@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     element: <App />
   },
   {
-    path: '/decks/:id',
+    path: '/decks/:deckId',
     element: <Deck />
   }
 ])

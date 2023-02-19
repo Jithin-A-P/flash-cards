@@ -1,12 +1,14 @@
-import express, {Request, Response} from 'express'
+import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import { getDecksContoller } from './controllers/getDecksController'
 import { deleteDeckContoller } from './controllers/deleteDeckController'
 import { createDeckContoller } from './controllers/createDeckCotnroller'
+import { createCardForDeckContoller } from './controllers/createCardForDeckContoller'
+import { getDeckContoller } from './controllers/getDeckContoller'
+import { deleteCardOnDeckContoller } from './controllers/deleteCardOnDeckContoller'
 
 import { config } from 'dotenv'
-import { createCardForDeckContoller } from './controllers/createCardForDeckContoller'
 config()
 
 
@@ -18,8 +20,10 @@ app.use(cors())
 
 app.get('/decks', getDecksContoller)
 app.post('/decks', createDeckContoller)
+app.get('/decks/:id', getDeckContoller)
 app.delete('/decks/:id', deleteDeckContoller)
 app.post('/decks/:id/cards', createCardForDeckContoller)
+app.delete('/decks/:id/cards/:index', deleteCardOnDeckContoller)
 
 mongoose.connect(
     process.env.MONGO_URL!

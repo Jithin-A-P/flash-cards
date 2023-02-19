@@ -16,7 +16,7 @@ function App() {
   }
 
   const handleDeleteDeck = async (deckId: string) => {
-    deleteDeck(deckId)
+    await deleteDeck(deckId)
     setDecks(decks.filter((deck) => deck._id !== deckId))
   }
 
