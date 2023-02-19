@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 
 import './index.css'
+import Header from './Header';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+    <Header />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )

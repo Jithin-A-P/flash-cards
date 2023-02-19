@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { createCard, deleteCard } from "./api/card";
 import { getDeck, TDeck } from "./api/deck";
 
-import "./App.css";
+import "./Deck.css";
 
 const Deck = () => {
   const [text, setText] = useState("")
@@ -36,8 +36,9 @@ const Deck = () => {
   }, [deckId]);
 
   return (
-    <div className="App">
-      <ul className="decks">
+    <div className="Deck  ">
+      <h1>{deck?.title}</h1>
+      <ul className="cards">
         {cards.map((card, index) => (
           <li key={index}>
             <button onClick={() => handleDeleteCard(deckId!, index)}>X</button>
